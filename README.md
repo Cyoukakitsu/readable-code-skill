@@ -16,6 +16,16 @@ mkdir -p ~/.claude/skills
 cp -r readable-code-skill/skills/readable-code-review ~/.claude/skills/
 ```
 
+### 更新
+
+`~/.claude/skills/` にコピーしたものは、リポジトリを更新しても自動では変わりません。章を追加したあとなどは、次のようにコピーし直してください。
+
+```bash
+cd readable-code-skill
+git pull
+cp -r skills/readable-code-review ~/.claude/skills/
+```
+
 Claude Code で「このコード読みやすい？」「可読性レビューして」「readability review」などと頼むと使われます。「readable-code-review でこのファイルをレビューして」と名前で呼び出すこともできます。
 
 ## 構成
