@@ -38,11 +38,12 @@ skills/readable-code-review/
     ├── naming.md               # 命名（第 2・3 章）
     ├── comments.md             # コメント（第 5・6 章）
     ├── compression.md          # 巨大な式と詰め込み（第 1・8 章）
-    └── control-flow.md         # 制御フロー（第 7 章）
+    ├── control-flow.md         # 制御フロー（第 7 章）
+    └── variables.md            # 変数（第 9 章）
 ```
 
 第 4 章（美しさ）は独立したファイルにしていません。見た目の整形はフォーマッタの仕事なので、SKILL.md に「指摘しない」ルールとして入れています。
 
 ## 進捗
 
-読み進めるのに合わせて、章ごとにルールを追加していきます。現在は第 1〜8 章までを反映しています。読書メモは [Qiita](https://qiita.com/ZHAOJIAYI/items/08e7f3ec02133efd1ddc) と [Zenn](https://zenn.dev/zhaojiayi) で公開しています。
+読み進めるのに合わせて、章ごとにルールを追加していきます。現在は第 1〜9 章までを反映しています。読書メモは [Qiita](https://qiita.com/ZHAOJIAYI/items/08e7f3ec02133efd1ddc) と [Zenn](https://zenn.dev/zhaojiayi) で公開しています。
