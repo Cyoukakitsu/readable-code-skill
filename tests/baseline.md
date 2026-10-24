@@ -20,6 +20,27 @@
 - トークン: calc 約 5.8 万/回、clean-route 約 4.7 万/回（全読みの約 7.4 万、6.7 万より 2〜3 割減）
 - chart-hook は按需読取では未実行。下の「全読み」の記録のまま
 
+## 変更後（このブランチのスキル、按需読取）
+
+`SKILL.md` に references の読み分けの案内と出力前の確認を追加し、`comments.md` にファイル先頭の説明を 1 文ずつ実装と突き合わせる指示、`variables.md` に依存配列の不安定の節を足した。
+
+| サンプル | 期待項目 | 基線 | 変更後 |
+|---|---|---|---|
+| calc | calc-header-vs-impl（must） | 1/3 | **3/3** |
+| calc | calc-sell-cost-name（should） | 2/3 | **3/3** |
+| calc | calc-repeated-reduce（should） | 0/3 | **3/3** |
+| calc | calc-numbered-comments（optional） | 3/3 | 2/3 |
+| calc | calc-test-title-contradiction（must） | 3/3 | 3/3 |
+| clean-route | must / should が出ない | 1/1 | 1/1 |
+| chart-hook | 期待 5 項目（基線は全読み 15/15） | 全読み 15/15 | 5/5（1 回のみ） |
+
+- calc の合計: 基線 9/15 → 変更後 14/15
+- 3 回とも `naming.md` / `comments.md` / `compression.md` を読んだ（案内どおり）。clean-route は `defensive-code.md` も読んだ（入力検証があるため）
+- calc-numbered-comments が 2/3: 1 回は「要約コメントなので残してよい」と判断して指摘しなかった。optional で、判断の分かれる項目
+- トークン: calc 約 6.5 万/回（基線 5.8 万、+11%）、clean-route 約 6.1 万（基線 4.7 万、+31%）。読む references が増えた分。全読み方式（calc 約 7.4 万）よりは少ない
+- chart-hook は 1 回だけ冒烟検査: 期待 5 項目すべて命中（退化なし）。依存配列の不安定は must で報告され、`variables.md` も読まれた。トークンは未記録
+- 実行回数が少ない（calc 3 回、clean-route 1 回）ので、差は目安として読む
+
 ## 全読み（最初の記録）
 
 SKILL.md と references をすべて読ませた。

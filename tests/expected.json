@@ -11,25 +11,25 @@
           "id": "calc-header-vs-impl",
           "min_severity": "must",
           "desc": "ヘッダーの「平均买入价」と実装（買入総額−売却代金を残数量で割る）が食い違う",
-          "passes": false
+          "passes": true
         },
         {
           "id": "calc-sell-cost-name",
           "min_severity": "should",
           "desc": "totalSellCost は実際には売却代金（proceeds）であり名前が合わない",
-          "passes": false
+          "passes": true
         },
         {
           "id": "calc-repeated-reduce",
           "min_severity": "should",
           "desc": "買い・売りで同じ filter+reduce が 4 回重複している",
-          "passes": false
+          "passes": true
         },
         {
           "id": "calc-numbered-comments",
           "min_severity": "optional",
           "desc": "1〜4 の手順コメントがコードの言い換えにすぎない",
-          "passes": true
+          "passes": false
         },
         {
           "id": "calc-test-title-contradiction",
