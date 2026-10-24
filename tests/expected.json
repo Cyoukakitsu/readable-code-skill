@@ -1,0 +1,91 @@
+{
+  "_rule": "passes 以外のフィールドは変更しない。通らないからといって期待値を消したり弱めたりしない。",
+  "cases": {
+    "calc": {
+      "targets": [
+        "fixtures/calc/lib/calculations.ts",
+        "fixtures/calc/lib/__tests__/calculations.test.ts"
+      ],
+      "expected": [
+        {
+          "id": "calc-header-vs-impl",
+          "min_severity": "must",
+          "desc": "ヘッダーの「平均买入价」と実装（買入総額−売却代金を残数量で割る）が食い違う",
+          "passes": false
+        },
+        {
+          "id": "calc-sell-cost-name",
+          "min_severity": "should",
+          "desc": "totalSellCost は実際には売却代金（proceeds）であり名前が合わない",
+          "passes": true
+        },
+        {
+          "id": "calc-repeated-reduce",
+          "min_severity": "should",
+          "desc": "買い・売りで同じ filter+reduce が 4 回重複している",
+          "passes": true
+        },
+        {
+          "id": "calc-numbered-comments",
+          "min_severity": "optional",
+          "desc": "1〜4 の手順コメントがコードの言い換えにすぎない",
+          "passes": true
+        },
+        {
+          "id": "calc-test-title-contradiction",
+          "min_severity": "must",
+          "desc": "テスト名「卖出价格不影响均价计算」が実装・別テストと矛盾し、売却数量 0 のため偶然通っている",
+          "passes": true
+        }
+      ]
+    },
+    "chart-hook": {
+      "targets": [
+        "fixtures/chart-hook/hooks/use-portfolio-candlestick-chart.ts"
+      ],
+      "context": [
+        "fixtures/chart-hook/lib/date-utils.ts"
+      ],
+      "expected": [
+        {
+          "id": "hook-unstable-deps",
+          "min_severity": "should",
+          "desc": "chartData が毎レンダリング新しい配列になり、useEffect 依存で毎回チャートが再作成される",
+          "passes": true
+        },
+        {
+          "id": "hook-dead-branch-and-refs",
+          "min_severity": "should",
+          "desc": "cleanup で null にしているため到達しない旧チャート破棄分岐と、読まれない chartRef/seriesRef",
+          "passes": true
+        },
+        {
+          "id": "hook-get-naming",
+          "min_severity": "optional",
+          "desc": "getFromDate は純粋なローカル計算なので get ではなく compute 系にすべき",
+          "passes": true
+        },
+        {
+          "id": "hook-duplicate-price-scale",
+          "min_severity": "optional",
+          "desc": "priceScale().applyOptions が 2 分岐で同一内容を重複",
+          "passes": true
+        },
+        {
+          "id": "hook-return-pct-expression",
+          "min_severity": "optional",
+          "desc": "収益率の三項演算子+parseFloat+toFixed の入れ子式",
+          "passes": true
+        }
+      ]
+    },
+    "clean-route": {
+      "targets": [
+        "fixtures/clean-route/route.ts"
+      ],
+      "expected": [],
+      "forbidden": "must / should の指摘が 1 件でもあれば失敗（信頼境界での検証を不要な防御として指摘するのは誤検出）",
+      "passes": true
+    }
+  }
+}
