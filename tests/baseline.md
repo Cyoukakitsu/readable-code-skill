@@ -1,5 +1,31 @@
 # 基線（スキル変更前）
 
+方式が 2 つある。**現在の基準は「按需読取」。** 「全読み」は最初に取った記録で、参考として残す。
+
+## 按需読取（現在の基準）
+
+`SKILL.md` だけを読み、references は必要と判断したものだけ読ませた。実際の使い方に近い。
+
+| サンプル | 期待項目 | 3 回中 | passes |
+|---|---|---|---|
+| calc | calc-header-vs-impl（must） | **1/3**（1 回はヘッダーを「净成本法」と誤読） | false |
+| calc | calc-sell-cost-name（should） | 2/3（1 回は optional） | false |
+| calc | calc-repeated-reduce（should） | **0/3** | false |
+| calc | calc-numbered-comments（optional） | 3/3 | true |
+| calc | calc-test-title-contradiction（must） | 3/3 | true |
+| clean-route | must / should が出ない | 1/1（1 回のみ実行） | true |
+
+- 読まれた references: calc は 3 回とも `comments.md` と `naming.md` のみ。clean-route は 0 件
+- **`compression.md` が読まれなかったため、重複求和の指摘が全滅した**（全読みでは 3/3）。`SKILL.md` の案内だけでは、必要な reference を読ませられていない
+- トークン: calc 約 5.8 万/回、clean-route 約 4.7 万/回（全読みの約 7.4 万、6.7 万より 2〜3 割減）
+- chart-hook は按需読取では未実行。下の「全読み」の記録のまま
+
+## 全読み（最初の記録）
+
+SKILL.md と references をすべて読ませた。
+
+
+
 - 対象: `main`（`3b0bf31`、PR #2 マージ直後）の `readable-code-review`
 - 実行: サンプルごとに新しいサブエージェントで 3 回（計 9 回）。期待値は見せていない
 - 判定: 3 回すべてで `min_severity` 以上の重要度で出たら `passes: true`

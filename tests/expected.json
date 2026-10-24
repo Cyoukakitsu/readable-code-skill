@@ -17,13 +17,13 @@
           "id": "calc-sell-cost-name",
           "min_severity": "should",
           "desc": "totalSellCost は実際には売却代金（proceeds）であり名前が合わない",
-          "passes": true
+          "passes": false
         },
         {
           "id": "calc-repeated-reduce",
           "min_severity": "should",
           "desc": "買い・売りで同じ filter+reduce が 4 回重複している",
-          "passes": true
+          "passes": false
         },
         {
           "id": "calc-numbered-comments",
