@@ -16,6 +16,12 @@ mkdir -p ~/.claude/skills
 cp -r readable-code-skill/skills/readable-code-review ~/.claude/skills/
 ```
 
+コピーの代わりにシンボリックリンクを使うと、リポジトリを `git pull` するだけで更新できます。
+
+```bash
+ln -s "$(pwd)/readable-code-skill/skills/readable-code-review" ~/.claude/skills/readable-code-review
+```
+
 ### 更新
 
 `~/.claude/skills/` にコピーしたものは、リポジトリを更新しても自動では変わりません。章を追加したあとなどは、次のようにコピーし直してください。
