@@ -48,11 +48,14 @@ skills/readable-code-review/
     ├── variables.md            # 変数（第 9 章）
     ├── extraction.md           # 下位問題の抽出（第 10 章）
     ├── single-task.md          # 一度に一つのこと（第 11 章）
-    └── explain-first.md        # 説明と構造の対応（第 12 章）
+    ├── explain-first.md        # 説明と構造の対応（第 12 章）
+    └── less-code.md            # 書かなくていいコード（第 13 章）
 ```
 
 第 4 章（美しさ）は独立したファイルにしていません。見た目の整形はフォーマッタの仕事なので、SKILL.md に「指摘しない」ルールとして入れています。
 
+第 13 章のうち「身近なライブラリに親しむ」は、標準 API への置き換えとして `extraction.md` に入っています。「Unix ツールボックスを使う」はコードの書き方ではなく作業の進め方の話なので、レビューのルールにはしていません。
+
 ## 進捗
 
-読み進めるのに合わせて、章ごとにルールを追加していきます。現在は第 1〜12 章までを反映しています。読書メモは [Qiita](https://qiita.com/ZHAOJIAYI/items/08e7f3ec02133efd1ddc) と [Zenn](https://zenn.dev/zhaojiayi) で公開しています。
+読み進めるのに合わせて、章ごとにルールを追加していきます。現在は第 1〜13 章までを反映しています。読書メモは [Qiita](https://qiita.com/ZHAOJIAYI/items/08e7f3ec02133efd1ddc) と [Zenn](https://zenn.dev/zhaojiayi) で公開しています。
