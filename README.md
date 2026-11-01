@@ -10,6 +10,16 @@
 
 ## インストール
 
+### Claude Code / Codex に頼む（いちばん簡単）
+
+次の文をそのままコピーして、Claude Code または Codex に貼り付けます。
+
+```text
+https://github.com/Cyoukakitsu/readable-code-skill の skills/readable-code-review ディレクトリを、あなたのスキルディレクトリ（Claude Code なら ~/.claude/skills/、Codex なら ~/.codex/skills/）にインストールして。すでにある場合は上書き更新して。
+```
+
+### 手動でインストールする
+
 ```bash
 git clone https://github.com/Cyoukakitsu/readable-code-skill.git
 mkdir -p ~/.claude/skills
