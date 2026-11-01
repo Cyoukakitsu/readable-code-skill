@@ -55,6 +55,7 @@ export function getFromDate(range) { ... }
 
 - `filterX` → 残すなら `selectX` / `pickX`、除くなら `excludeX` / `omitX`
 - `clipX` / `cutX` → 最大長に収めるなら `truncateX`
+- 名詞としても動詞としても読める名前（`count()`、`record()`、`report()`）。`counter.count(5)` は「5 を数えて合計を返す」とも「カウントに 5 を足す」とも読める。足す操作なら `add` / `increment`、値を返すなら `total` / `size` のような名詞にして、どちらの意味か 1 通りに決まる語にする（`optional`）。型や呼び出し側から意味が確定しているものと、ORM やライブラリのメソッド名（`prisma.user.count()` など）は指摘しない
 
 組み込みメソッドの `Array.prototype.filter` の呼び出しは指摘しない。JS では「条件に合うものを残す」と意味が決まっている。
 
@@ -79,6 +80,15 @@ TS/JS で一番大事な例外: `Array.prototype.slice(start, end)`、`String.pr
 - 終点を含む閉区間なのに `end` / `to` と名付けている → `last` / `max`、または `endInclusive` のように明示する
 - 同じコードベースで、閉区間と半開区間が同じ名前で混在している
 - 日付の範囲（`from` / `to`）で、終点の日を含むかどうかを本体や呼び出し先から判断できない → 名前か JSDoc で明示するよう提案する。呼び出し先の API を確認できなければ `unverified` を付ける
+- 期間を表す言葉（`1M`、`last24h`、「直近」「今月」）が、経過時間で数えるのか、暦の区切りで数えるのかが名前にも本体にも書かれていない → 名前か JSDoc で明示するよう提案する（`optional`）
+
+```ts
+// features/assets/lib/date-utils.ts
+export type Range = "1M" | "6M" | "1Y" | "YTD" | "MAX";
+const daysMap: Record<Range, number> = { "1M": 30, "6M": 180, "1Y": 365, YTD: 0, MAX: 0 };
+```
+
+ここで出すべき指摘（`optional`）: `1M` / `6M` / `1Y` は経過日数（30・180・365 日）で数え、`YTD` だけは暦（今年の 1 月 1 日）で数えている。名前は「1 か月」「6 か月」と読めるが、たとえば 8/31 の 6 か月前は暦では 2/28 で、180 日前は 3/4 になる。日数で数えるのが意図なら、JSDoc に「経過日数で数える」と書く。暦の月で数えたいなら、日数ではなく月の計算にする。どちらが意図かは作者に確認する。
 
 ### 真偽値
 
