@@ -98,25 +98,25 @@
           "id": "order-type-bypass",
           "min_severity": "should",
           "desc": "raw as any as Order[] が外部データの検証を飛ばしている",
-          "passes": false
+          "passes": true
         },
         {
           "id": "order-nonnull",
           "min_severity": "should",
           "desc": "省略可能な email に ! を付け、存在するかのように読ませている",
-          "passes": false
+          "passes": true
         },
         {
           "id": "order-mixed-loop",
           "min_severity": "should",
           "desc": "ループ内で絞り込み・集計・整形・通知が同時に進んでいる",
-          "passes": false
+          "passes": true
         },
         {
           "id": "order-hollow-test",
           "min_severity": "should",
           "desc": "テスト名は合計を語るが toBeDefined しか検証せず、計算が壊れていても通る",
-          "passes": false
+          "passes": true
         }
       ]
     },
@@ -128,7 +128,7 @@
       "source": "合成（Claude 作成、作者の確認待ち）",
       "expected": [],
       "forbidden": "must / should の指摘が 1 件でもあれば失敗（beforeEach の let やテスト本体向けでない規則の誤適用は誤検出）",
-      "passes": false
+      "passes": true
     },
     "rereview": {
       "targets": [
@@ -140,7 +140,7 @@
       "source": "合成（Claude 作成、作者の確認待ち）",
       "expected": [],
       "forbidden": "解決済みの calc の指摘、見送り済みの calcShip の指摘、差分外の formatYen の指摘のいずれかが出たら失敗",
-      "passes": false
+      "passes": true
     }
   }
 }

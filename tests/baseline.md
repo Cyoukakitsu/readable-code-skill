@@ -1,8 +1,37 @@
 # 基線（スキル変更前）
 
-方式が 2 つある。**現在の基準は「按需読取」。** 「全読み」は最初に取った記録で、参考として残す。
+方式が 2 つある。**現在の基準は下の「2026-11-02 の比較」（按需読取）。** 「全読み」は最初に取った記録で、参考として残す。
 
-## 按需読取（現在の基準）
+## 2026-11-02 の比較（第 15 章まで反映、新しいサンプルを含む）
+
+`main`（`7b37a5e`）と再レビューの改訂版を、同じサンプルと同じ手順で各 3 回ずつ実行した。実行者はどちらも新しいサブエージェントで、期待値は見せていない。
+
+| サンプル | 期待項目 | 変更前 | 変更後 |
+|---|---|---|---|
+| calc | calc-header-vs-impl（must） | 3/3 | 3/3 |
+| calc | calc-sell-cost-name（should） | 3/3 | 3/3 |
+| calc | calc-repeated-reduce（should） | 3/3 | 3/3 |
+| calc | calc-numbered-comments（optional） | 1/3 | 1/3 |
+| calc | calc-test-title-contradiction（must） | 3/3 | 3/3 |
+| chart-hook | hook-unstable-deps（should） | 3/3 | 3/3 |
+| chart-hook | hook-dead-branch-and-refs（should） | 3/3 | 3/3 |
+| chart-hook | hook-get-naming（optional） | 2/3 | 3/3 |
+| chart-hook | hook-duplicate-price-scale（optional） | 3/3 | 3/3 |
+| chart-hook | hook-return-pct-expression（optional） | 3/3 | 3/3 |
+| order-summary | 型の回避・`!`・混在したループ・検証しないテスト（各 should） | 各 3/3 | 各 3/3 |
+| clean-route | must / should が出ない | 3/3 | 3/3 |
+| clean-test | must / should が出ない | 3/3 | 3/3 |
+| rereview | 解決済み・見送り済み・差分外の指摘が出ない | 1/3 | 3/3 |
+
+- 指摘の合計（calc、chart-hook、order-summary）: 68 件 → 60 件。`optional` は 16 件 → 13 件で、ほかに chart-hook の 1 回で 6 件を「省略した指摘」に回した
+- 変更後の 18 回すべてで、冒頭 3 行以内に件数が出た。must の指摘には根拠が付いた
+- rereview の変更前は、3 回とも修正済み・見送り済みの指摘は再掲しなかったが、2 回が差分外の `formatYen` に触れる新しい optional を出した
+- 型とテストの追加ルールは、変更前のスキルでも order-summary を 3/3 で検出したため、取り下げた
+- `chart-hook` と `calc` の差は回数が少なく、誤差の範囲として読む
+- 3 回以上の再レビュー、`pre-existing`、`REVIEW.md` の読み取りを確かめるサンプルはまだない
+- 新しいサンプルは合成の暫定値で、作者の確認待ち
+
+## 按需読取（2026-10-24 の基準）
 
 `SKILL.md` だけを読み、references は必要と判断したものだけ読ませた。実際の使い方に近い。
 
