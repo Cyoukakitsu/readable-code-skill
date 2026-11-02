@@ -86,6 +86,61 @@
       "expected": [],
       "forbidden": "must / should の指摘が 1 件でもあれば失敗（信頼境界での検証を不要な防御として指摘するのは誤検出）",
       "passes": true
+    },
+    "order-summary": {
+      "targets": [
+        "fixtures/order-summary/order-summary.ts",
+        "fixtures/order-summary/order-summary.test.ts"
+      ],
+      "source": "合成（Claude 作成、作者の確認待ち）",
+      "expected": [
+        {
+          "id": "order-type-bypass",
+          "min_severity": "should",
+          "desc": "raw as any as Order[] が外部データの検証を飛ばしている",
+          "passes": false
+        },
+        {
+          "id": "order-nonnull",
+          "min_severity": "should",
+          "desc": "省略可能な email に ! を付け、存在するかのように読ませている",
+          "passes": false
+        },
+        {
+          "id": "order-mixed-loop",
+          "min_severity": "should",
+          "desc": "ループ内で絞り込み・集計・整形・通知が同時に進んでいる",
+          "passes": false
+        },
+        {
+          "id": "order-hollow-test",
+          "min_severity": "should",
+          "desc": "テスト名は合計を語るが toBeDefined しか検証せず、計算が壊れていても通る",
+          "passes": false
+        }
+      ]
+    },
+    "clean-test": {
+      "targets": [
+        "fixtures/clean-test/price.ts",
+        "fixtures/clean-test/price.test.ts"
+      ],
+      "source": "合成（Claude 作成、作者の確認待ち）",
+      "expected": [],
+      "forbidden": "must / should の指摘が 1 件でもあれば失敗（beforeEach の let やテスト本体向けでない規則の誤適用は誤検出）",
+      "passes": false
+    },
+    "rereview": {
+      "targets": [
+        "fixtures/rereview/discount.ts"
+      ],
+      "context": [
+        "fixtures/rereview/previous-report.md"
+      ],
+      "source": "合成（Claude 作成、作者の確認待ち）",
+      "expected": [],
+      "forbidden": "解決済みの calc の指摘、見送り済みの calcShip の指摘、差分外の formatYen の指摘のいずれかが出たら失敗",
+      "passes": false
     }
   }
 }
