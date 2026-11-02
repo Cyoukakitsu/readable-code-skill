@@ -53,7 +53,7 @@ AI が書いたコードをレビューするときは、書いたときとは�
 skills/readable-code-review/
 ├── SKILL.md                    # レビューの進め方、出力形式、注意点
 └── references/
-    ├── defensive-code.md       # 不要な防御コード（第 1 章）、型の検査を止めるコード
+    ├── defensive-code.md       # 不要な防御コード（第 1 章）
     ├── naming.md               # 命名（第 2・3 章）
     ├── comments.md             # コメント（第 5・6 章）
     ├── compression.md          # 巨大な式と詰め込み（第 1・8 章）
@@ -79,7 +79,7 @@ skills/readable-code-review/
 本のルールとは別に、次の資料を参考にレビューの進め方を補っています。
 
 - [How the Claude Code team does code review](https://claude.dev/blog/solving-code-review-at-anthropic/): 再レビューの収束、根拠の明示、`pre-existing` の区別、`REVIEW.md`、誤検出の測定
-- [unclebob/ub-mode](https://github.com/unclebob/ub-mode): 本体が壊れても通るテストの判定、型の検査を止めるコードの指摘、同じ前提の修正が続いたときに前提を疑う手順
+- [unclebob/ub-mode](https://github.com/unclebob/ub-mode): 同じ前提の修正が続いたときに前提を疑う手順
 
 ## 進捗
 
