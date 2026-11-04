@@ -42,7 +42,12 @@ git pull
 cp -r skills/readable-code-review ~/.claude/skills/
 ```
 
-Claude Code で「このコード読みやすい？」「可読性レビューして」「readability review」などと頼むと使われます。「readable-code-review でこのファイルをレビューして」と名前で呼び出すこともできます。
+## 使い方
+
+Claude Code では、次のどちらでも使えます。
+
+- **スラッシュコマンドで呼び出す**：`/readable-code-review path/to/file.ts` のように、ファイルや diff を指定して明示的に呼び出します。確実に起動したいときはこちらです。
+- **自然な言葉で頼む**：「このコード読みやすい？」「可読性レビューして」「readability review」などと頼むと、自動で使われます。「readable-code-review でこのファイルをレビューして」と名前で呼び出すこともできます。
 
 ## 構成
 
